@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TCS Ultimatix Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="left-panel">
+        <img src="{{ url_for('static', filename='bg.png') }}" alt="Background" class="bg-image">
+        <div class="left-panel-text">
+            <img src="{{ url_for('static', filename='tcs_logo.png') }}" alt="TCS Logo" class="tcs-logo">
+            <h2>TATA CONSULTANCY SERVICES</h2>
+            <p>Join the TCS family today</p>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <img src="{{ url_for('static', filename='tcs_logo.png') }}" alt="Ultimatix Logo" class="ultimatix-logo">
+        <form class="login-form" method="POST">
+            <input type="text" name="username" placeholder="Choose Username" required>
+            <input type="password" name="password" placeholder="Choose Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash">{{ messages[0] }}</div>
+          {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
